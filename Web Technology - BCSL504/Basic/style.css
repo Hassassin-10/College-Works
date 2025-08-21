@@ -1,0 +1,28 @@
+body
+{
+    background-color: rgb(58, 206, 189);
+
+}
+h1
+{
+    color: rgba(212, 45, 45, 0.918);
+}
+img
+{
+    padding: auto;
+    width: 350px;
+    height: 350px;
+}
+p{
+    color: rgb(242, 255, 2);
+}
+.order
+{
+    color: rgb(255, 16, 16);
+    font-size: 20px;
+}
+.unorder
+{
+    color: rgb(254, 32, 213);
+    font-size: 20px;
+}

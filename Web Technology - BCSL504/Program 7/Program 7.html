@@ -1,0 +1,281 @@
+<!-- 7. Develop JavaScript program (with HTML/CSS) for:
+a) Converting JSON text to JavaScript Object.
+b) Convert JSON results into a date.
+c) Converting From JSON To CSV and CSV to JSON.
+d) Create hash from string using crypto.createHash() method. -->
+
+<!DOCTYPE html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <title>Simple Converter</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #000000;
+        }
+
+        .container {
+            width: 60%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .head-title h1 {
+            font-size: 28px;
+            padding: 10px;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .head-title {
+            width: 100%;
+            background: #000;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .section h2 {
+            color: #000000;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+
+        textarea {
+            font-size: 14px;
+            width: 100%;
+            height: 120px;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #00000022;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        textarea:focus {
+            background: transparent;
+            border: 1px solid #00000022;
+            border-color: #007BFF;
+            box-shadow: 0 0 12px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        button {
+            display: inline-block;
+            padding: 15px 15px;
+            margin: 10px 0;
+            font-weight: 600;
+            border: none;
+            border-radius: 7px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007BFF;
+        }
+
+        button:focus {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007BFF;
+        }
+
+        pre {
+            display: none;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            overflow: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .error {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000;
+            background: #ffdddd;
+            border-color: #ff0000;
+            padding: 10px;
+        }
+
+        .success {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000;
+            background: #6ef08d38;
+            border-color: #47e56d;
+            padding: 10px;
+        }
+
+        .adjust-area {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head-title">
+            <h1>Simple Converter</h1>
+        </div>
+        <div class="section">
+            <h2>1. Convert JSON Text to JavaScript Object</h2>
+            <textarea id="jsonInput" placeholder="Enter JSON here..."></textarea>
+            <button onclick="convertJsonToObject()">Convert JSON</button>
+            <pre id="jsonOutput" class="output"></pre>
+        </div>
+
+        <div class="section">
+            <h2>2. Convert JSON Results into Date</h2>
+            <textarea id="jsonDateInput" placeholder='Enter JSON with date in "yyyy-mm-dd" format'></textarea>
+            <button onclick="convertJsonToDate()">Convert to Date</button>
+            <pre id="jsonDateOutput" class="output"></pre>
+        </div>
+
+        <div class="section">
+            <h2>3. Convert JSON to CSV and CSV to JSON</h2>
+            <textarea id="jsonCsvInput" placeholder="Enter JSON for CSV conversion..."></textarea>
+            <button onclick="convertJsonToCsv()">JSON to CSV</button>
+            <pre id="csvOutput" class="output"></pre>
+            <textarea id="csvInput" placeholder="Enter CSV here..." class="adjust-area"></textarea>
+            <button onclick="convertCsvToJson()">CSV to JSON</button>
+            <pre id="jsonCsvOutput" class="output"></pre>
+        </div>
+
+        <div class="section">
+            <h2>4. Create Hash from String</h2>
+            <input type="text" id="hashInput" placeholder="Enter string to hash">
+            <button onclick="createHash()">Create Hash</button>
+            <pre id="hashOutput" class="output"></pre>
+        </div>
+    </div>
+
+    <script>
+        function showResult(id, text, isSuccess) {
+            const element = document.getElementById(id);
+            element.textContent = text;
+            element.className = isSuccess ? 'success' : 'error';
+            element.style.display = 'block';
+            element.style.opacity = '1';
+        }
+
+        function convertJsonToObject() {
+            const jsonInput = document.getElementById('jsonInput').value;
+            try {
+                const jsonObject = JSON.parse(jsonInput);
+                showResult('jsonOutput', JSON.stringify(jsonObject, null, 2), true);
+            } catch (error) {
+                showResult('jsonOutput', 'Invalid JSON', false);
+            }
+        }
+
+        function convertJsonToDate() {
+            const jsonDateInput = document.getElementById('jsonDateInput').value;
+            try {
+                const data = JSON.parse(jsonDateInput);
+                if (data.date && !isNaN(new Date(data.date).getTime())) {
+                    const date = new Date(data.date);
+                    showResult('jsonDateOutput', date.toString(), true);
+                } else {
+                    showResult('jsonDateOutput', 'Invalid Date Format', false);
+                }
+            } catch (error) {
+                showResult('jsonDateOutput', 'Invalid JSON', false);
+            }
+        }
+
+        function convertJsonToCsv() {
+            const jsonInput = document.getElementById('jsonCsvInput').value;
+            try {
+                const jsonArray = JSON.parse(jsonInput);
+                if (Array.isArray(jsonArray) && jsonArray.length > 0) {
+                    const keys = Object.keys(jsonArray[0]);
+                    const csv = [
+                        keys.join(','),
+                        ...jsonArray.map(row => keys.map(key => JSON.stringify(row[key])).join(','))
+                    ].join('\n');
+                    showResult('csvOutput', csv, true);
+                } else {
+                    showResult('csvOutput', 'Invalid JSON: Expected an array with objects.', false);
+                }
+            } catch (error) {
+                showResult('csvOutput', 'Invalid JSON', false);
+            }
+        }
+
+        function convertCsvToJson() {
+            const csvInput = document.getElementById('csvInput').value;
+            try {
+                const lines = csvInput.trim().split('\n');
+                if (lines.length > 1) {
+                    const keys = lines[0].split(',');
+                    if (keys.length > 0) {
+                        const jsonArray = lines.slice(1).map(line => {
+                            const values = line.split(',');
+                            return keys.reduce((obj, key, index) => {
+                                obj[key] = values[index];
+                                return obj;
+                            }, {});
+                        });
+                        showResult('jsonCsvOutput', JSON.stringify(jsonArray, null, 2), true);
+                    } else {
+                        showResult('jsonCsvOutput', 'Invalid CSV: No columns found.', false);
+                    }
+                } else {
+                    showResult('jsonCsvOutput', 'Invalid CSV: No data found.', false);
+                }
+            } catch (error) {
+                showResult('jsonCsvOutput', 'Invalid CSV', false);
+            }
+        }
+
+        function createHash() {
+            const hashInput = document.getElementById('hashInput').value.trim();
+            if (hashInput.length > 0) {
+                const hash = CryptoJS.SHA256(hashInput).toString();
+                showResult('hashOutput', hash, true);
+            } else {
+                showResult('hashOutput', 'Input cannot be empty', false);
+            }
+        }
+    </script>
+</body>
+
+</html>

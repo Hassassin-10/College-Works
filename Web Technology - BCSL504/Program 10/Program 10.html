@@ -1,0 +1,180 @@
+<!-- 10 Develop a JavaScript program with Ajax (with HTML/CSS) for:
+a) Use ajax() method (without Jquery) to add the text content from the text file by sending ajax request.
+b) Use ajax() method (with Jquery) to add the text content from the text file by sending ajax request.
+c) Illustrate the use of getJSON() method in jQuery.
+d) Illustrate the use of parseJSON() method to display JSON values. -->
+
+<!DOCTYPE html>
+
+<head>
+    <title>AJAX Examples</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            padding: 20px 0;
+        }
+
+        #content {
+            flex-direction: column;
+            display: flex;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
+        }
+
+        button:focus {
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
+        }
+
+
+        #output {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        #output.plain-ajax {
+            background-color: #f0f8ff;
+            border: 1px solid #b0c4de;
+        }
+
+        #output.jquery-ajax {
+            background-color: #f5fffa;
+            border: 1px solid #98fb98;
+        }
+
+        #output.jquery-json {
+            background-color: #fffaf0;
+            border: 1px solid #ffd700;
+        }
+
+        #output.parse-json {
+            background-color: #fff0f5;
+            border: 1px solid #ff69b4;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AJAX Examples</h1>
+    <div id="content">
+        <button id="plain-ajax-btn">Load Text (Plain AJAX)</button>
+        <button id="jquery-ajax-btn">Load Text (jQuery AJAX)</button>
+        <button id="jquery-json-btn">Load JSON (jQuery getJSON)</button>
+        <button id="parse-json-btn">Load and Parse JSON (jQuery get)</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        function showOutput(className) {
+            const output = document.getElementById('output');
+            output.className = className;
+            output.style.display = 'block';
+        }
+
+        document.getElementById('plain-ajax-btn').addEventListener('click', function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'textfile.txt', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById('output').innerText = xhr.responseText;
+                } else {
+                    document.getElementById('output').innerText = 'Error loading file.';
+                }
+                showOutput('plain-ajax');
+            };
+            xhr.send();
+        });
+
+        $('#jquery-ajax-btn').on('click', function () {
+            $.ajax({
+                url: 'textfile.txt',
+                method: 'GET',
+                success: function (data) {
+                    $('#output').text(data);
+                },
+                error: function () {
+                    $('#output').text('Error loading file.');
+                }
+            }).always(function () {
+                showOutput('jquery-ajax');
+            });
+        });
+
+
+        $('#jquery-json-btn').on('click', function () {
+            $.getJSON('data.json')
+                .done(function (data) {
+                    $('#output').text(JSON.stringify(data, null, 2));
+                })
+                .fail(function () {
+                    $('#output').text('Error loading JSON file.');
+                })
+                .always(function () {
+                    showOutput('jquery-json');
+                });
+        });
+
+
+        $('#parse-json-btn').on('click', function () {
+            $.get('data.json')
+                .done(function (data) {
+                    try {
+                        let jsonData;
+                        
+                        if (typeof data === 'string') {
+                            jsonData = JSON.parse(data);
+                        } else {
+                            jsonData = data;
+                        }
+                        $('#output').text(JSON.stringify(jsonData, null, 2));
+                    } catch (e) {
+                        $('#output').text('Error parsing JSON: ' + e.message);
+                    }
+                })
+                .fail(function () {
+                    $('#output').text('Error loading JSON file.');
+                })
+                .always(function () {
+                    showOutput('parse-json');
+                });
+        });
+    </script>
+</body>
+
+</html>

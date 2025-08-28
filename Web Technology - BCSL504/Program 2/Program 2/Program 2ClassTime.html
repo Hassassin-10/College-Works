@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 95%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f19898;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #7bc9ed;
+        }
+
+        .lab-hour {
+            background-color: #91f688;
+        }
+
+        .elective-hour {
+            background-color: #7f8cf1;
+            color: white;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        tfoot {
+            background-color: #ed2f8b;
+            font-weight: bold;
+        }
+
+        .footer {
+            color: rgb(244, 237, 58);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Time Table</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Days / Time</th>
+                <th>09:00 - 10:00</th>
+                <th>10:00 - 11:00</th>
+                <th>11:10 - 11:15</th>
+                <th>11:15 - 12:15</th>
+                <th>12:15 - 1:15</th>
+                <th>1:15 - 2:05</th>
+                <th>02:05 - 03:05</th>
+                <th>03:05 - 04:05</th>
+                <th>04:05 - 05:05</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>SE</td>
+                <td>AI</td>
+                <td rowspan="6" class="highlight">Tea Break</td>
+                <td>CN</td>
+                <td>ES</td>
+                <td rowspan="6" class="highlight">Lunch Break</td>
+                <td colspan="2" class="lab-hour">WEB LAB B1</td>
+                <td>Library</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>AI</td>
+                <td>SE</td>
+                <td>RM</td>
+                <td>TC</td>
+                <td colspan="2">Mini Project</td>
+                <td>Library</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>TC</td>
+                <td>CN</td>
+                <td>AI</td>
+                <td>RM</td>
+                <td>SE</td>
+                <td class="elective-hour">TC(T)</td>
+                <td>Student Counseling</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>SE</td>
+                <td>RM</td>
+                <td colspan="2" class="lab-hour">CN LAB</td>
+                <td colspan="2" class="lab-hour">WEB LAB B2</td>
+                <td>Student Counseling</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>TC</td>
+                <td>CN</td>
+                <td colspan="2" class="lab-hour">WEB LAB B3</td>
+                <td colspan="2">Dept. Activity</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td class="elective-hour">SE(T)</td>
+                <td class="elective-hour">TC(T)</td>
+                <td class="elective-hour">CN(T)</td>
+                <td class="elective-hour">WEB(T)</td>
+                <td colspan="2">Physical Education</td>
+                <td>-</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="footer">
+                <td colspan="10">End of Timetable</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!-- PROGRAM-2
+De, rlOll thr IITML pa,:c n11nird as •Tabl1•,html" to dis11l1y your doss timr t1blr.
+n) Provide the title a. ·rime 'fable wilb table bender and table footer, row-spun and col­ span etc.
+b) Provide various color options to lbc cells (Rlgbligbt the lab hours and elective hours
+with ditTcrent colors.)
+c) Provide color options for rows. -->
+
+<!DOCTYPE html>
+<head>
+    <title>Time Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        caption {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #444;
+            color: white;
+        }
+
+        tfoot {
+            background-color: #eee;
+            font-style: italic;
+        }
+
+        /* Row colors */
+        tr:nth-child(even) {
+            background-color: #ee4444;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #2f8cff;
+        }
+
+        /* Lab and Elective colors */
+        .lab {
+            background-color: #8df6a7;
+            font-weight: bold;
+        }
+
+        .elective {
+            background-color: #d1c4e9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <caption>Time Table</caption>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>8:00-9:00</th>
+                <th>9:00-10:00</th>
+                <th>10:00-11:00</th>
+                <th>11:00-12:00</th>
+                <th>12:00-1:00</th>
+                <th>1:00-2:00</th>
+                <th>2:00-3:00</th>
+                <th>3:00-4:00</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>Math</td>
+                <td>Physics</td>
+                <td colspan="2" class="lab">Physics Lab</td>
+                <td>Break</td>
+                <td>English</td>
+                <td>CS</td>
+                <td class="elective">Elective 1</td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>CS</td>
+                <td>Math</td>
+                <td>English</td>
+                <td>Physics</td>
+                <td>Break</td>
+                <td colspan="2" class="lab">Computer Lab</td>
+                <td class="elective">Elective 2</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>Math</td>
+                <td>CS</td>
+                <td>Physics</td>
+                <td>English</td>
+                <td>Break</td>
+                <td>English</td>
+                <td colspan="2" class="elective">Elective 1</td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td colspan="2" class="lab">Electronics Lab</td>
+                <td>Physics</td>
+                <td>Break</td>
+                <td>CS</td>
+                <td>Math</td>
+                <td colspan="2" class="elective">Elective 3</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>English</td>
+                <td>CS</td>
+                <td>Math</td>
+                <td>Physics</td>
+                <td>Break</td>
+                <td colspan="2" class="lab">Project Lab</td>
+                <td>Elective 4</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="9">Note: Lab hours and Elective hours are color-coded.</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>

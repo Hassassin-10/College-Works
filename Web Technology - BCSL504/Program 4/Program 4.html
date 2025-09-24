@@ -1,154 +1,147 @@
-<!-- 4. Develop HTML page named as “registration.html” having variety of HTML input elements 
-with background colors, table for alignment & provide font colors & size using CSS styles. -->
+<!-- Develop HTML page named as “registration.html” having variety of HTML input elements with 
+background colors, table for alignment & provide font colors & size using CSS styles.  -->
 
-<!DOCTYPE html>
-
-<head>
-    <title>Registration Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-            margin: 0;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            margin-bottom: 10px;
-        }
-
-        label {
-            font-size: 14px;
-            color: #555;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="date"],
-        select,
-        textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .gender-options {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        input[type="submit"],
-        input[type="reset"] {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            flex: 1;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        input[type="reset"] {
-            background-color: #f44336;
-            color: white;
-        }
-
-        .form-group textarea {
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h2>Registration Form</h2>
-        <form action="#" method="post">
-            <div class="form-group">
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" required>
-            </div>
-            <div class="form-group">
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="dob">Date of Birth:</label>
-                <input type="date" id="dob" name="dob">
-            </div>
-            <div class="form-group">
-                <label>Gender:</label>
-                <div class="gender-options">
-                    <input type="radio" id="male" name="gender" value="male">
-                    <label for="male">Male</label>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="female">Female</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="country">Country:</label>
-                <select id="country" name="country">
-                    <option value="usa">USA</option>
-                    <option value="canada">Canada</option>
-                    <option value="uk">UK</option>
-                    <option value="india">India</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="bio">Bio:</label>
-                <textarea id="bio" name="bio" rows="4"></textarea>
-            </div>
-            <div class="button-group">
-                <input type="submit" value="Register">
-                <input type="reset" value="Reset">
-            </div>
-        </form>
-    </div>
-</body>
-
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Registration Form</title> 
+    <style> 
+        body { 
+            background-color: #f0f8ff; 
+            font-family: Arial, sans-serif; 
+        } 
+ 
+        h2 { 
+            text-align: center; 
+            color: #003366; 
+            font-size: 28px; 
+        } 
+ 
+        table { 
+            margin: auto; 
+            background-color: #ffffff; 
+            padding: 20px; 
+            border: 2px solid #cccccc; 
+            border-radius: 10px; 
+        } 
+ 
+        td { 
+            padding: 10px; 
+font-size: 16px; 
+            color: #333333; 
+        } 
+ 
+        input[type="text"], 
+        input[type="email"], 
+        input[type="password"], 
+        input[type="date"], 
+        input[type="tel"], 
+        select, 
+        textarea { 
+            width: 100%; 
+            padding: 8px; 
+            background-color: #e6f7ff; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+            font-size: 14px; 
+        } 
+ 
+        input[type="radio"], 
+        input[type="checkbox"] { 
+            margin-right: 5px; 
+        } 
+ 
+        textarea { 
+            resize: vertical; 
+        } 
+ 
+        input[type="submit"], 
+        input[type="reset"] { 
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px;
+border-radius: 4px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        } 
+ 
+        input[type="reset"] { 
+            background-color: #f44336; 
+        } 
+ 
+        input[type="submit"]:hover, 
+        input[type="reset"]:hover { 
+            opacity: 0.9; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+    <h2>Student Registration Form</h2> 
+ 
+    <form action="#" method="post"> 
+        <table> 
+            <tr> 
+                <td>Full Name:</td> 
+                <td><input type="text" name="fullname" required></td> 
+            </tr> 
+            <tr> 
+                <td>Email:</td> 
+                <td><input type="email" name="email" required></td> 
+            </tr> 
+            <tr> 
+                <td>Password:</td> 
+                <td><input type="password" name="password" required></td> 
+            </tr> 
+            <tr> 
+                <td>Gender:</td> 
+                <td> 
+                    <input type="radio" name="gender" value="male" required> Male 
+                    <input type="radio" name="gender" value="female"> Female 
+                </td> 
+            </tr> 
+            <tr> 
+                <td>Date of Birth:</td> 
+                <td><input type="date" name="dob"></td> 
+            </tr> 
+            <tr> 
+                <td>Phone Number:</td> 
+                <td><input type="tel" name="phone"></td> 
+            </tr> 
+            <tr> 
+                <td>Course:</td> 
+                <td> 
+                    <select name="course" required> 
+                        <option value="">--Select Course--</option> 
+                        <option value="btech">B.Tech</option> 
+                        <option value="bca">BCA</option> 
+                        <option value="bsc">B.Sc</option> 
+                        <option value="mca">MCA</option> 
+                    </select> 
+                </td> 
+            </tr> 
+            <tr> 
+                <td>Hobbies:</td> 
+                <td> 
+                    <input type="checkbox" name="hobby" value="reading"> Reading 
+                    <input type="checkbox" name="hobby" value="sports"> Sports 
+                    <input type="checkbox" name="hobby" value="music"> Music 
+                </td> 
+            </tr> 
+            <tr> 
+                <td>Address:</td> 
+                <td><textarea name="address" rows="4"></textarea></td> 
+            </tr> 
+            <tr> 
+                <td colspan="2" style="text-align:center;"> 
+                    <input type="submit" value="Register"> 
+                    <input type="reset" value="Clear"> 
+                </td> 
+            </tr> 
+        </table> 
+    </form> 
+ 
+</body> 
 </html>

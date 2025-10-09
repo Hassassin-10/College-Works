@@ -1,209 +1,109 @@
-<!DOCTYPE html>
+<!-- Apply HTML, CSS and JavaScript to design a simple calculator to perform the following 
+operations: sum, product, difference, remainder, quotient, power, square root and square. -->
 
-<head>
-    <title>Simple calculator</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .calculator {
-            background: #fff;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 320px;
-            text-align: center;
-        }
-
-        h1 {
-            border-radius: 8px;
-            background: #000;
-            font-size: 24px;
-            padding: 10px;
-            color: #ffffff;
-            margin-bottom: 30px;
-        }
-
-        input,
-        select,
-        button {
-            width: 100%;
-            margin: 10px 0;
-            padding: 12px;
-            border: 1px solid #0808081d;
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-
-        #operation {
-            cursor: pointer;
-        }
-
-
-        input:focus,
-        select:focus,
-        button:focus {
-            outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.25);
-        }
-
-        option {
-            background-color: #fff;
-            color: #000;
-            padding: 10px;
-            border: none;
-        }
-
-        option:hover {
-            background-color: #f1f1f1;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            transition: box-shadow 0.3s, transform 0.3s;
-        }
-
-        button:hover {
-            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
-        }
-
-        button:focus {
-            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #007bff;
-        }
-
-
-        #result.error {
-            background: #ffdddd;
-            border-color: #ff0000;
-        }
-
-        #result.success {
-            font-size: 17px;
-            font-weight: 500;
-            color: #000;
-            background: #6ef08d38;
-            border-color: #47e56d;
-        }
-
-        #result {
-            font-size: 18px;
-            color: #000000;
-            border-radius: 8px;
-            background: #afffe2;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.5s, transform 0.5s;
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-
-
-        #result.show {
-            cursor: not-allowed;
-            opacity: 1;
-            margin-top: 20px;
-            padding: 15px;
-            transform: translateY(0);
-        }
-
-    </style>
-</head>
-
-<body>
-    <div class="calculator">
-        <h1>Simple Calculator</h1>
-        <form id="calculator-form">
-            <input type="number" id="num1" placeholder="Enter first number" required>
-            <input type="number" id="num2" placeholder="Enter second number" required>
-            <select id="operation" required>
-                <option value="">Select Operation</option>
-                <option value="sum">Sum</option>
-                <option value="product">Product</option>
-                <option value="difference">Difference</option>
-                <option value="remainder">Remainder</option>
-                <option value="quotient">Quotient</option>
-                <option value="power">Power</option>
-                <option value="sqrt">Square Root</option>
-                <option value="square">Square</option>
-            </select>
-            <button type="button" onclick="calculate()">Calculate</button>
-        </form>
-        <div id="result"></div>
-    </div>
-    <script>
-        function calculate() {
-            const num1 = parseFloat(document.getElementById('num1').value);
-            const num2 = parseFloat(document.getElementById('num2').value);
-            const operation = document.getElementById('operation').value;
-            let result = '';
-            let resultClass = 'success';
-
-            if (isNaN(num1) || isNaN(num2)) {
-                result = 'Please enter valid numbers.';
-                resultClass = 'error';
-            } else {
-                switch (operation) {
-                    case 'sum':
-                        result = `Sum: ${num1 + num2}`;
-                        break;
-                    case 'product':
-                        result = `Product: ${num1 * num2}`;
-                        break;
-                    case 'difference':
-                        result = `Difference: ${num1 - num2}`;
-                        break;
-                    case 'remainder':
-                        result = `Remainder: ${num1 % num2}`;
-                        break;
-                    case 'quotient':
-                        if (num2 === 0) {
-                            result = 'Cannot divide by zero';
-                            resultClass = 'error';
-                        } else {
-                            result = `Quotient: ${num1 / num2}`;
-                        }
-                        break;
-                    case 'power':
-                        result = `Power: ${Math.pow(num1, num2)}`;
-                        break;
-                    case 'sqrt':
-                        if (num1 < 0 || num2 < 0) {
-                            result = 'Square root is not defined for negative numbers';
-                            resultClass = 'error';
-                        } else {
-                            result = `Square Root of ${num1}: ${Math.sqrt(num1)} <br> Square Root of ${num2}: ${Math.sqrt(num2)}`;
-                        }
-                        break;
-                    case 'square':
-                        result = `Square of ${num1}: ${Math.pow(num1, 2)} <br> Square of ${num2}: ${Math.pow(num2, 2)}`;
-                        break;
-                    default:
-                        result = 'Please select an operation.';
-                        resultClass = 'error';
-                }
-            }
-
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = result;
-            resultDiv.classList.remove('show', 'error', 'success');
-            resultDiv.classList.add(resultClass, 'show');
-        }
-
-    </script>
-</body>
-
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>Simple Calculator</title> 
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      background-color: #f1f2f6; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+    } 
+    .calculator { 
+      background-color: #fff; 
+      padding: 2rem; 
+      border-radius: 10px; 
+      box-shadow: 0 0 20px rgba(0,0,0,0.1); 
+      text-align: center; 
+    } 
+    input[type="number"] { 
+      width: 80px; 
+      padding: 0.5rem; 
+      margin: 0.5rem; 
+      font-size: 1rem; 
+    } 
+    button { 
+      margin: 0.3rem; 
+     padding: 0.5rem 1rem; 
+      font-size: 1rem; 
+      background-color: #0984e3; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+    } 
+    button:hover { 
+      background-color: #74b9ff; 
+    } 
+    #result { 
+      margin-top: 1rem; 
+      font-size: 1.2rem; 
+      color: #2d3436; 
+    } 
+  </style> 
+</head> 
+<body> 
+  <div class="calculator"> 
+    <h2>Simple Calculator</h2> 
+    <input type="number" id="num1" placeholder="Number 1"> 
+    <input type="number" id="num2" placeholder="Number 2"><br> 
+ 
+    <button onclick="calculate('sum')">Sum</button> 
+    <button onclick="calculate('product')">Product</button> 
+    <button onclick="calculate('difference')">Difference</button> 
+    <button onclick="calculate('quotient')">Quotient</button> 
+    <button onclick="calculate('remainder')">Remainder</button><br> 
+    <button onclick="calculate('power')">Power</button> 
+    <button onclick="calculate('sqrt')">Square Root</button> 
+    <button onclick="calculate('square')">Square</button> 
+ 
+    <div id="result"></div> 
+ 
+  </div> 
+ 
+  <script> 
+    function calculate(operation) { 
+      const num1 = parseFloat(document.getElementById("num1").value); 
+      const num2 = parseFloat(document.getElementById("num2").value); 
+      let result; 
+ 
+      switch(operation) { 
+        case 'sum': 
+          result = num1 + num2; 
+          break; 
+        case 'product': 
+          result = num1 * num2; 
+          break; 
+        case 'difference': 
+          result = num1 - num2; 
+          break; 
+        case 'quotient': 
+          result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero"; 
+          break; 
+        case 'remainder': 
+          result = num2 !== 0 ? num1 % num2 : "Cannot divide by zero"; 
+          break; 
+        case 'power': 
+          result = Math.pow(num1, num2); 
+          break; 
+        case 'sqrt': 
+          result = `√${num1} = ${Math.sqrt(num1)}, √${num2} = ${Math.sqrt(num2)}`; 
+          break; 
+        case 'square': 
+          result = `${num1}² = ${num1 ** 2}, ${num2}² = ${num2 ** 2}`; 
+          break; 
+        default: 
+ 
+result = "Unknown operation"; 
+} 
+document.getElementById("result").textContent = "Result: " + result; 
+} 
+</script> 
+</body> 
 </html>

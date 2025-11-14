@@ -1,1 +1,19 @@
-{"name":"John Doe","age":30,"city":"New York","skills":["JavaScript","React","Node.js"],"address":{"street":"123 Elm Street","zipcode":"10001"},"projects":[{"name":"Website Redesign","year":2023,"technologies":["HTML","CSS","JavaScript"]},{"name":"Mobile App","year":2024,"technologies":["React Native","Expo"]}]}
+{
+  "students": [
+    {
+      "name": "Alice",
+      "age": 21,
+      "course": "B.Sc"
+    },
+    {
+      "name": "Bob",
+      "age": 22,
+      "course": "BCA"
+    },
+    {
+      "name": "Charlie",
+      "age": 23,
+      "course": "MCA"
+    }
+  ]
+}

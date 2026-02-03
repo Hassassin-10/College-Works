@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TCWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <WorkspaceRepository>
+    <RepoClass>SQLiteRepository</RepoClass>
+    <DatabasePathAndName>.\Repository\Registration Page test.db</DatabasePathAndName>
+    <Database>C:\H-ASSASSIN\Codeing\College Works\TOSCA–Automated Software testing BISL657A\Tosca_Workspaces\Registration Page test\Repository\Registration Page test.db</Database>
+    <DatabaseUser />
+    <DatabasePwd />
+    <DatabaseSchema />
+  </WorkspaceRepository>
+  <CommonRepository>
+    <RepoClass>null</RepoClass>
+  </CommonRepository>
+  <DefaultUser>
+    <UserName>Admin</UserName>
+    <UserSurrogate>01KGJ81MDW7VP2JJZXYQDNSYT7</UserSurrogate>
+  </DefaultUser>
+  <TCWorkspaceID>cfba576c-a8f2-4750-9f55-1f112109b959</TCWorkspaceID>
+  <TCCommonRepositoryID />
+  <TCWorkspaceDescription />
+</TCWorkspace>

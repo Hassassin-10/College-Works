@@ -1,0 +1,26 @@
+[3] 22:45:48: Log started for 'C:\H-ASSASSIN\Codeing\College Works\TOSCA–Automated Software testing BISL657A\Tosca_Workspaces\Registration Page test\Registration Page test.tws'
+[3] 22:45:48: Log level: 4
+[3] 22:45:48: Release: 25.1.0.3382
+[3] 22:45:48: Execution Approval is disabled.
+[3] 22:45:48: No service discovery configured.
+[3] 22:45:48:  Save started!
+[3] 22:45:48: QTestIntegrationAddIn beginning to Export to QTest
+[3] 22:45:48: QTestIntegrationAddIn finished exporting objects to QTest
+[3] 22:45:48: QTestIntegrationAddIn beginning to unlink objects from QTest
+[3] 22:45:48: LinkTcToQTestService grouping testcases by same endpoint
+[3] 22:45:48: UnlinkTestEventService grouping TestEvents by same endpoint
+[3] 22:45:48: QTestIntegrationAddIn finished unlinking objects from QTest
+[3] 22:45:48:  Save finished!
+[2] 22:45:49: CommanderAssemblyResolver: Unable to resolve: System.Collections.Specialized.XmlSerializers, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+[4] 22:45:49:  ShowStatusInfo: 'New Project with Default-Folders created!'
+[3] 22:45:49:  Save started!
+[3] 22:45:49: QTestIntegrationAddIn beginning to Export to QTest
+[3] 22:45:49: QTestIntegrationAddIn finished exporting objects to QTest
+[3] 22:45:49: QTestIntegrationAddIn beginning to unlink objects from QTest
+[3] 22:45:49: LinkTcToQTestService grouping testcases by same endpoint
+[3] 22:45:49: UnlinkTestEventService grouping TestEvents by same endpoint
+[3] 22:45:49: QTestIntegrationAddIn finished unlinking objects from QTest
+[3] 22:45:49:  Save finished!
+[4] 22:45:49:  ShowStatusInfo: 'Workspace 'C:\H-ASSASSIN\Codeing\College Works\TOSCA–Automated Software testing BISL657A\Tosca_Workspaces\Registration Page test\Registration Page test.tws' created successfully!'
+[3] 22:45:51: Closing Workspace!
+[3] 22:45:51: Log closed!

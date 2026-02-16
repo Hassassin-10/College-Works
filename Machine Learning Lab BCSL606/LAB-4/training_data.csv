@@ -1,0 +1,8 @@
+Outlook,Temperature,Humidity,Windy,PlayTennis
+Sunny,Hot,High,FALSE,No
+Sunny,Hot,High,TRUE,No
+Overcast,Hot,High,FALSE,Yes
+Rain,Cold,High,FALSE,Yes
+Rain,Cold,High,TRUE,No
+Overcast,Hot,High,TRUE,Yes
+Sunny,Hot,High,FALSE,No

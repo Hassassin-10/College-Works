@@ -1,0 +1,29 @@
+pwd – Show current directory path
+ls – List files and directories
+ls -l – List files with details
+ls -a – List all files including hidden
+cd dir – Change directory
+cd .. – Move one directory up
+mkdir name – Create a directory
+rmdir name – Remove empty directory
+rm file – Delete a file
+rm -r dir – Delete directory recursively
+touch file – Create empty file
+cp src dest – Copy file or directory
+mv src dest – Move or rename file
+cat file – Display file content
+less file – View file page by page
+head file – Show first 10 lines of file
+tail file – Show last 10 lines of file
+tail -f file – Monitor file in real time
+grep "text" file – Search text in file
+find /path -name file – Find file by name
+whoami – Show current user
+uname -a – Show system information
+top – Show running processes
+df -h – Show disk usage
+free -h – Show memory usage
+chmod 755 file – Change file permissions
+chown user:group file – Change file owner
+history – Show command history
+clear – Clear terminal screen

@@ -1,0 +1,12 @@
+sudo yum update -y
+sudo yum install docker -y
+sudo service docker start
+sudo service docker status
+(ctrl z)
+sudo su
+docker version
+docker pull nginx
+docker images
+docker run -d -p 80:80 nginx
+docker images
+docker ps

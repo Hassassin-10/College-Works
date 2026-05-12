@@ -1,0 +1,13 @@
+Send Keys
+
+^(a)
+
+^(s)
+
+Math Operation
+
+{MATH[2+4]}
+
+{MATH[Min(4,8)]}
+
+{MATH[Round(3.1415,2)]}
